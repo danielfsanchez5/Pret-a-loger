@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",  // Specifies the root directory for module resolution (usually the root of your project)
+    "paths": {
+      "@/*": ["src/*"]  // Maps the "@" alias to the "src" folder
+    }
+  },
+  "include": ["src"]  // Make sure the src folder is included in the configuration
+}

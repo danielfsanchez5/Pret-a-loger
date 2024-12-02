@@ -1,0 +1,651 @@
+/* Import the font that I want */
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap');
+
+/* Format the whole page */
+.page {
+  --background: #ffffff;
+  --foreground: #182c65;
+  --primary: #323232;
+  --light: #e6e6e6;
+  --darkblue: #182c65;
+  --lightblue: #4192d4;
+  --greenblue: #17b7af;
+  --pink: #faa9ca;
+  --gold: #d6c279;
+  
+  --gray-rgb: 0, 0, 0;
+  --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
+  --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
+
+  --button-primary-hover: var(--primary);
+  --button-secondary-hover: var(--background);
+  
+}
+
+@media (prefers-color-scheme: dark) {
+  .page {
+    --gray-rgb: 255, 255, 255;
+    --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
+    --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
+
+    --button-primary-hover: var(--background);
+    --button-secondary-hover: var(--foreground);
+  }
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.main ol {
+  padding-left: 0;
+  margin: 0;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: -0.01em;
+  list-style-position: inside;
+}
+
+.main li:not(:last-of-type) {
+  margin-bottom: 8px;
+}
+
+.main code {
+  font-family: inherit;
+  background: var(--gray-alpha-100);
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.ctas {
+  display: flex;
+  gap: 16px;
+}
+
+.ctas a {
+  appearance: none;
+  border-radius: 128px;
+  height: 48px;
+  padding: 0 20px;
+  border: none;
+  border: 1px solid transparent;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 500;
+}
+
+a.primary {
+  background: var(--foreground);
+  color: var(--background);
+  gap: 8px;
+}
+
+a.secondary {
+  border-color: var(--gray-alpha-200);
+  min-width: 180px;
+}
+
+.footer {
+  grid-row-start: 3;
+  display: flex;
+  gap: 24px;
+}
+
+.footer a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer img {
+  flex-shrink: 0;
+}
+
+/* Enable hover only on non-touch devices */
+@media (hover: hover) and (pointer: fine) {
+  a.primary:hover {
+    background: var(--button-primary-hover);
+    border-color: transparent;
+  }
+
+  a.secondary:hover {
+    background: var(--button-secondary-hover);
+    border-color: transparent;
+  }
+
+  .footer a:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+}
+
+@media (max-width: 600px) {
+  .page {
+    padding: 32px;
+    padding-bottom: 80px;
+  }
+
+  .main {
+    align-items: center;
+  }
+
+  .main ol {
+    text-align: center;
+  }
+
+  .ctas {
+    flex-direction: column;
+  }
+
+  .ctas a {
+    font-size: 14px;
+    height: 40px;
+    padding: 0 16px;
+  }
+
+  a.secondary {
+    min-width: auto;
+  }
+
+  .footer {
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .logo {
+    filter: invert();
+  }
+}
+
+/* Format the topbar */
+.topbar {
+  width: 100%;
+  height: 15vh;
+  background-color: var(--background);
+  top: 0;
+  left: 0;
+  display: flex;
+  padding: 20px;
+  align-items: center;  /* Align items vertically */
+  justify-content: space-between;  /* Space between logo and navigation */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+/* Format the topbar spacing*/
+.topbar sp {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 10px;
+  padding-right: 40px; /* Optional padding to the right */
+}
+
+/* Format the topbar link*/
+.topbar li {
+  margin: 0 15px;
+  font-size: 18px;
+}
+
+.topbar li:hover {
+  color: #4192d4; /* Change color on hover */
+}
+
+.topbar li [aria-current="page"] {
+  color: #4192d4; /* Highlight color for the active page */
+  font-weight: bold; /* Optional: make the active button bold */
+}
+
+/* Format the logos*/
+
+.logolight {
+  display: flex;
+  align-items: center;
+  height: 15vh;
+}
+
+.logodark {
+  display: flex;
+  align-items: center;
+  height: 30vh;
+}
+
+/* Format the section of the home page */
+.section {
+  min-height: 100vh; /* Each section takes the full viewport height */
+  scroll-snap-align: start; /* Smooth scrolling to each section */
+}
+
+.problem {
+  height: 100%; /* Full viewport height */
+}
+/* Format the project page with two sides */
+.half {
+  display: flex;
+}
+
+/* Format the project page with two sides */
+.left {
+  width: 50%;
+}
+
+/* Format the project page with two sides */
+.right {
+  width: 50%;
+  padding: 80px;
+  justify-content: center;
+  align-items: center;
+}
+
+.solutionGrid {
+  display: flex;
+  gap: 20px;
+  background-color: var(--light);
+  padding: 20px;
+}
+
+.solutionCard {
+  flex: 1;
+  text-align: center;
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: white;
+  padding: 20px;
+}
+
+.solutionCard img {
+  width: 100px;
+  border-radius: 10px;
+}
+
+.vision {
+  height: 50vh; /* Set the height to 50% of the viewport height */
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.5), /* Semi-transparent overlay */
+      rgba(0, 0, 0, 0.5)
+    ),
+    url('/I1.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Format a main container that contemplates one page that scroll the sections */
+.fixed {
+  width: 100%;
+  height: 85vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory; 
+}
+
+.sectionFixed {
+  width: 100%;
+  height: 85vh; 
+  background-size: cover;
+  background-position: center;
+  justify-content: center;
+  align-items: center;
+  scroll-snap-align: start; 
+  position: relative;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Format the problem textbox */
+.textProblem {
+  position: absolute;
+  bottom: 20%;
+  left: 10%;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  max-width: 500px;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  padding: 20px;
+  border-radius: 10px;
+  font-family: Arial, sans-serif;
+}
+
+.textProblem h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.textProblem p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+/* Format the pass of the images */
+.carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 85vh;
+  position: relative;
+}
+
+/* Format the image container */
+.imageContainer {
+  width: 80%;
+  height: 75vh; /* Keeps a large image proportion */
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out; /* Smooth transition */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Format the navigation button */
+.imageButton {
+  transform: translateY(-50%);
+  background-color: var(--lightblue);
+  color: var(--background);
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.imageButton:hover {
+  background-color: var(--lightblue); /* Darker on hover */
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Subtle shadow */
+}
+
+.imageButton:active {
+  transform: translateY(-50%) scale(0.95); /* Slight shrink on click */
+}
+
+.carousel .imageButton:first-of-type {
+  position: absolute;
+  top: 50%;
+  left: 5%; /* Left button */
+}
+
+.carousel .imageButton:last-of-type {
+  position: absolute;
+  top: 50%;
+  right: 5%; /* Right button */
+}
+
+.infoButton1 {
+  position: absolute;
+  top: 60%;
+  right: 60%; 
+}
+.infoButton2 {
+  position: absolute;
+  top: 55%;
+  right: 45%; 
+}
+.infoButton3 {
+  position: absolute;
+  top: 45%;
+  right: 55%; 
+}
+.infoButton4 {
+  position: absolute;
+  top: 40%;
+  right: 40%; 
+}
+
+.infoWindow {
+  position: fixed;
+  top: 40%;
+  left: 80%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.infoContent {
+  text-align: center;
+}
+
+.closeButton {
+  position: absolute; /* Make it position relative to the parent */
+  top: 5px; /* Adjust distance from the top */
+  right: 5px; /* Adjust distance from the right */
+  color: black;
+  border: none;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  font-size: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.closeButton:hover {
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Subtle shadow */
+}
+
+.profileSection {
+  display: flex;
+  align-items: center;
+  height: 50vh; /* Set the height to 50% of the viewport height */
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.5), /* Semi-transparent overlay */
+      rgba(0, 0, 0, 0.5)
+    ),
+    url('/I8.jpg');
+  padding: 50px;
+}
+
+.profileSection img {
+  width: 40vh;
+  height: 40vh;
+  border-radius: 20%;
+}
+
+.profileDescription {
+  margin-left: 40px;
+}
+
+.description {
+  padding: 100px;
+}
+.projectsSection {
+  padding: 40px;
+  background-color: var(--light);
+}
+
+.projectGrid {
+  display: flex;
+  gap: 20px;
+}
+
+.projectCard {
+  flex: 1;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  overflow: hidden;
+  background-color: white;
+  padding: 10px;
+}
+
+.projectCard img {
+  width: 100%;
+  padding: 20px;
+  border-radius: 1px;
+}
+
+.companiesSection {
+  padding: 40px;
+  overflow: hidden;
+  position: relative;
+  white-space: nowrap;
+}
+
+.companyLogos {
+  display: flex;
+  justify-content: space-around; 
+  align-items: center; 
+  gap: 20px; 
+  /*animation: scroll 20s linear infinite; */
+}
+
+.companyLogos img {
+  height: 80px; 
+  width: auto; 
+  object-fit: contain; 
+}
+
+/* Keyframes for scrolling */
+@keyframes scroll {
+  0% {
+    transform: translateX(0%); /* Start outside on the right */
+  }
+  100% {
+    transform: translateX(-100%); /* Move to outside on the left */
+  }
+}
+
+.skillsSection {
+  margin-left: 40%;
+  margin-right: 40%;
+}
+
+.skill {
+  margin-bottom: 20px;
+}
+
+.skillBar {
+  height: 10px;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.skillFill {
+  height: 100%;
+  background-color: var(--lightblue);
+  border-radius: 5px;
+}
+
+
+/* Format the contact form */
+.contact {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputGroup label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.inputGroup input,
+.inputGroup textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.inputGroup textarea {
+  resize: none;
+  height: 100px;
+}
+
+.personalInfo {
+  text-align: center;
+}
+
+.personalInfo p {
+  margin: 10px 0;
+}
+
+.socialMedia {
+  margin-top: 20px;
+}
+
+.socialMedia a {
+  margin: 0 10px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.socialMedia a:hover {
+  text-decoration: underline;
+}
+
+/* Format the navigation button */
+.mainButton {
+  position: relative;
+  background-color: var(--lightblue);
+  color: var(--background);
+  border: none;
+  border-radius: 10px;
+  width: 120px;
+  height: 40px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mainButton:hover {
+  background-color: var(--lightblue); /* Darker on hover */
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Subtle shadow */
+}
+
+.downbar {
+  width: 100%;
+  height: 30vh;
+  background-color: var(--foreground);
+  color: white;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;  /* Align items vertically */
+  justify-content: space-between;  /* Space between logo and navigation */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  padding-right: 20px;
+  z-index: 1000;
+}
+
